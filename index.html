@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVTTC Exercise Day 4 - OSINT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #333333;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #222222;
+      margin-bottom: 30px;
+    }
+    .question {
+      background: #f8f8f8;
+      padding: 20px;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .question h2 {
+      margin-top: 0;
+      font-size: 18px;
+      font-weight: normal;
+      color: #111111;
+    }
+    input[type=text] {
+      width: 60%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #0073e6;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005bb5;
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .correct {
+      color: #008000;
+    }
+    .wrong {
+      color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NAVTTC Exercise Day 4 - OSINT</h1>
+
+    <div class="question">
+      <h2>1. What is this user's avatar of?</h2>
+      <input type="text" id="q1">
+      <button onclick="checkAnswer('q1','cat')">Check</button>
+      <p class="feedback" id="feedback-q1"></p>
+    </div>
+
+    <div class="question">
+      <h2>2. What city is this person in?</h2>
+      <input type="text" id="q2">
+      <button onclick="checkAnswer('q2','London')">Check</button>
+      <p class="feedback" id="feedback-q2"></p>
+    </div>
+
+    <div class="question">
+      <h2>3. What is the SSID of the WAP he connected to?</h2>
+      <input type="text" id="q3">
+      <button onclick="checkAnswer('q3','UnileverWiFi')">Check</button>
+      <p class="feedback" id="feedback-q3"></p>
+    </div>
+
+    <div class="question">
+      <h2>4. What is his personal email address?</h2>
+      <input type="text" id="q4">
+      <button onclick="checkAnswer('q4','OWoodflint@gmail.com')">Check</button>
+      <p class="feedback" id="feedback-q4"></p>
+    </div>
+
+    <div class="question">
+      <h2>5. What site did you find his email address on?</h2>
+      <input type="text" id="q5">
+      <button onclick="checkAnswer('q5','Github')">Check</button>
+      <p class="feedback" id="feedback-q5"></p>
+    </div>
+
+    <div class="question">
+      <h2>6. Where has he gone on holiday?</h2>
+      <input type="text" id="q6">
+      <button onclick="checkAnswer('q6','New York')">Check</button>
+      <p class="feedback" id="feedback-q6"></p>
+    </div>
+
+    <div class="question">
+      <h2>7. What is the person's password?</h2>
+      <input type="text" id="q7">
+      <button onclick="checkAnswer('q7','pennYDr0pper.!')">Check</button>
+      <p class="feedback" id="feedback-q7"></p>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(inputId, correctAnswer) {
+      const userInput = document.getElementById(inputId).value.trim().toLowerCase();
+      const feedback = document.getElementById('feedback-' + inputId);
+      if (userInput === correctAnswer.toLowerCase()) {
+        feedback.textContent = "✅ Correct!";
+        feedback.className = "feedback correct";
+      } else {
+        feedback.textContent = "❌ Wrong, try again.";
+        feedback.className = "feedback wrong";
+      }
+    }
+  </script>
+</body>
+</html>
+
